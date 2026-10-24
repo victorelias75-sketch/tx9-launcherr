@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/root"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:clipChildren="false">
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:paddingStart="48dp"
+        android:paddingTop="27dp"
+        android:paddingEnd="48dp"
+        android:paddingBottom="27dp">
+
+        <!-- Cabeçalho: relógio, data e botões -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clipChildren="false"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/clock"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:includeFontPadding="false"
+                    android:textColor="@color/text_primary"
+                    android:textSize="30sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="3dp"
+                    android:textColor="@color/text_secondary"
+                    android:textSize="11sp" />
+            </LinearLayout>
+
+            <com.tx9.launcher.GlassCard
+                android:id="@+id/pill_theme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="-12dp"
+                android:layout_marginBottom="-12dp">
+
+                <TextView
+                    android:id="@+id/pill_theme_text"
+                    style="@style/PillText" />
+            </com.tx9.launcher.GlassCard>
+
+            <com.tx9.launcher.GlassCard
+                android:id="@+id/pill_lite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-16dp"
+                android:layout_marginTop="-12dp"
+                android:layout_marginBottom="-12dp">
+
+                <TextView
+                    android:id="@+id/pill_lite_text"
+                    style="@style/PillText" />
+            </com.tx9.launcher.GlassCard>
+
+            <com.tx9.launcher.GlassCard
+                android:id="@+id/pill_settings"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-16dp"
+                android:layout_marginTop="-12dp"
+                android:layout_marginBottom="-12dp">
+
+                <TextView
+                    style="@style/PillText"
+                    android:text="@string/pill_settings" />
+            </com.tx9.launcher.GlassCard>
+
+            <com.tx9.launcher.GlassCard
+                android:id="@+id/pill_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-16dp"
+                android:layout_marginTop="-12dp"
+                android:layout_marginBottom="-12dp">
+
+                <TextView
+                    style="@style/PillText"
+                    android:text="@string/pill_info" />
+            </com.tx9.launcher.GlassCard>
+
+            <com.tx9.launcher.GlassCard
+                android:id="@+id/pill_original"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-16dp"
+                android:layout_marginTop="-12dp"
+                android:layout_marginEnd="-12dp"
+                android:layout_marginBottom="-12dp">
+
+                <TextView
+                    style="@style/PillText"
+                    android:text="@string/pill_original" />
+            </com.tx9.launcher.GlassCard>
+        </LinearLayout>
+
+        <!-- App principal + atalhos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="234dp"
+            android:layout_marginStart="-12dp"
+            android:layout_marginTop="1dp"
+            android:layout_marginEnd="-12dp"
+            android:clipChildren="false"
+            android:orientation="horizontal">
+
+            <com.tx9.launcher.GlassCard
+                android:id="@+id/hero"
+                android:layout_width="579dp"
+                android:layout_height="234dp">
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <FrameLayout
+                        android:id="@+id/hero_deco"
+                        android:layout_width="150dp"
+                        android:layout_height="150dp"
+                        android:layout_gravity="end|center_vertical"
+                        android:layout_marginEnd="40dp">
+
+                        <View
+                            android:id="@+id/hero_circle"
+                            android:layout_width="72dp"
+                            android:layout_height="72dp"
+                            android:layout_gravity="center" />
+
+                        <ImageView
+                            android:id="@+id/hero_icon"
+                            android:layout_width="44dp"
+                            android:layout_height="44dp"
+                            android:layout_gravity="center"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitCenter" />
+                    </FrameLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="bottom|start"
+                        android:orientation="vertical"
+                        android:paddingStart="28dp"
+                        android:paddingBottom="24dp">
+
+                        <TextView
+                            android:id="@+id/hero_tag"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:letterSpacing="0.1"
+                            android:paddingStart="7dp"
+                            android:paddingTop="3dp"
+                            android:paddingEnd="7dp"
+                            android:paddingBottom="3dp"
+                            android:text="@string/hero_tag"
+                            android:textSize="8sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/hero_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:ellipsize="end"
+                            android:includeFontPadding="false"
+                            android:maxWidth="330dp"
+                            android:maxLines="1"
+                            android:textColor="@color/text_primary"
+                            android:textSize="39sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/hero_sub"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:maxWidth="330dp"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </FrameLayout>
+            </com.tx9.launcher.GlassCard>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginStart="-12dp"
+                android:layout_weight="1"
+                android:clipChildren="false"
+                android:orientation="vertical">
+
+                <com.tx9.launcher.GlassCard
+                    android:id="@+id/store_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="12dp">
+
+                        <ImageView
+                            android:id="@+id/store_icon"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:importantForAccessibility="no"
+                            android:scaleType="fitCenter" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/store_title"
+                                android:textColor="@color/text_primary"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/store_sub"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="9sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.tx9.launcher.GlassCard>
+
+                <com.tx9.launcher.GlassCard
+                    android:id="@+id/add_card"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="-12dp"
+                    android:layout_weight="1"
+                    android:contentDescription="@string/add_title">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="18dp"
+                        android:paddingEnd="12dp">
+
+                        <TextView
+                            android:id="@+id/add_plus"
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:gravity="center"
+                            android:includeFontPadding="false"
+                            android:text="+"
+                            android:textSize="28sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="13dp"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/add_title"
+                                android:textColor="@color/text_primary"
+                                android:textSize="15sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:text="@string/add_sub"
+                                android:textColor="@color/text_secondary"
+                                android:textSize="9sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </com.tx9.launcher.GlassCard>
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Favoritos -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-1dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/fav_title"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/fav_hint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fav_row"
+            android:layout_width="match_parent"
+            android:layout_height="104dp"
+            android:layout_marginStart="-48dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginEnd="-48dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="43dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="43dp"
+            android:paddingBottom="5dp"
+            android:scrollbars="none" />
+
+        <!-- Todos os apps -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-6dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/all_title"
+                android:textColor="@color/text_primary"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/all_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="9dp"
+                android:textColor="@color/text_secondary"
+                android:textSize="9sp" />
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/all_row"
+            android:layout_width="match_parent"
+            android:layout_height="89dp"
+            android:layout_marginStart="-48dp"
+            android:layout_marginTop="-10dp"
+            android:layout_marginEnd="-48dp"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:paddingStart="43dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="43dp"
+            android:paddingBottom="5dp"
+            android:scrollbars="none" />
+    </LinearLayout>
+
+    <!-- Painel de opções e seletor de apps (sem desfoque: indisponível nesta versão do Android) -->
+    <FrameLayout
+        android:id="@+id/overlay"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#C704060A"
+        android:clickable="true"
+        android:visibility="gone">
+
+        <LinearLayout
+            android:id="@+id/sheet"
+            android:layout_width="360dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/sheet_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="2dp"
+                android:textColor="@color/text_primary"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:id="@+id/sheet_body"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:clipToPadding="false"
+                android:orientation="vertical" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="8dp"
+                android:text="@string/sheet_hint"
+                android:textColor="@color/text_secondary"
+                android:textSize="9sp" />
+        </LinearLayout>
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/toast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="35dp"
+        android:accessibilityLiveRegion="polite"
+        android:paddingStart="15dp"
+        android:paddingTop="9dp"
+        android:paddingEnd="15dp"
+        android:paddingBottom="9dp"
+        android:textColor="@color/text_primary"
+        android:textSize="11sp"
+        android:visibility="gone" />
+</FrameLayout>

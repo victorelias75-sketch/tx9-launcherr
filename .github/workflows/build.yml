@@ -1,0 +1,62 @@
+name: Gerar APK
+
+on:
+  push:
+    branches: [ main ]
+  workflow_dispatch:
+
+# Uma compilação nova cancela a anterior
+concurrency:
+  group: build-apk
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - uses: android-actions/setup-android@v3
+
+      - uses: gradle/actions/setup-gradle@v4
+        with:
+          gradle-version: '8.9'
+
+      # Usa a chave salva nos Secrets; se não existir, cria uma nova
+      - name: Preparar chave de assinatura
+        env:
+          KEYSTORE_BASE64: ${{ secrets.KEYSTORE_BASE64 }}
+        run: |
+          if [ -n "$KEYSTORE_BASE64" ]; then
+            echo "$KEYSTORE_BASE64" | base64 -d > app/release.keystore
+            echo "Usando a chave fixa salva nos Secrets."
+          else
+            keytool -genkeypair -keystore app/release.keystore -alias tx9 \
+              -keyalg RSA -keysize 2048 -validity 10000 \
+              -storepass tx9launcher -keypass tx9launcher \
+              -dname "CN=TX9 Launcher"
+            mkdir -p chave
+            base64 -w0 app/release.keystore > chave/KEYSTORE_BASE64.txt
+            echo "::warning::Chave nova gerada. Baixe o artefato chave-assinatura e salve como Secret KEYSTORE_BASE64."
+          fi
+
+      - name: Compilar APK
+        run: gradle assembleRelease --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: TX9Launcher-apk
+          path: app/build/outputs/apk/release/*.apk
+
+      - name: Enviar chave (somente na primeira vez)
+        if: hashFiles('chave/KEYSTORE_BASE64.txt') != ''
+        uses: actions/upload-artifact@v4
+        with:
+          name: chave-assinatura
+          path: chave/KEYSTORE_BASE64.txt
+          retention-days: 1

@@ -1,0 +1,57 @@
+<resources>
+    <string name="app_name">TX9 Launcher</string>
+
+    <string name="pill_theme">Tema: %1$s</string>
+    <string name="lite_on">Modo leve: ligado</string>
+    <string name="lite_off">Modo leve: desligado</string>
+    <string name="lite_auto_suffix">" (auto)"</string>
+    <string name="pill_settings">Configurações</string>
+    <string name="pill_info">Sistema</string>
+    <string name="pill_original">Launcher original</string>
+
+    <string name="hero_tag">APP PRINCIPAL</string>
+    <string name="hero_loading">Carregando…</string>
+    <string name="hero_fallback">YouTube</string>
+    <string name="hero_open">Aperte OK para abrir</string>
+    <string name="hero_missing_store">Não instalado. Aperte OK para instalar pela Play Store</string>
+    <string name="hero_missing_usb">Não instalado. Instale o APK pelo pen drive</string>
+
+    <string name="store_title">Play Store</string>
+    <string name="store_sub">Instalar novos aplicativos</string>
+    <string name="store_missing">Não encontrada nesta box</string>
+    <string name="add_title">Adicionar à Home</string>
+    <string name="add_sub">Escolha entre os apps instalados</string>
+    <string name="add_tile">Adicionar</string>
+
+    <string name="fav_title">Favoritos</string>
+    <string name="fav_hint">Segure OK ou aperte Menu para organizar</string>
+    <string name="fav_hint_empty">Use Adicionar para escolher seus apps</string>
+    <string name="all_title">Todos os apps</string>
+    <string name="all_count">%1$d instalados</string>
+
+    <string name="sheet_hint">Voltar para fechar</string>
+    <string name="picker_title">Adicionar à Home</string>
+    <string name="picker_main_title">Escolha o app principal</string>
+    <string name="opt_open">Abrir</string>
+    <string name="opt_details">Detalhes do app</string>
+    <string name="opt_left">Mover para a esquerda</string>
+    <string name="opt_right">Mover para a direita</string>
+    <string name="opt_remove">Remover da Home</string>
+    <string name="opt_add">Adicionar à Home</string>
+    <string name="opt_set_main">Definir como app principal</string>
+    <string name="opt_change_main">Trocar app principal</string>
+
+    <string name="toast_added">%1$s adicionado à Home</string>
+    <string name="toast_removed">%1$s removido da Home</string>
+    <string name="toast_limit">Limite de %1$d favoritos</string>
+    <string name="toast_edge">Já está na ponta</string>
+    <string name="toast_main_set">%1$s agora é o app principal</string>
+    <string name="toast_no_store">Play Store não encontrada nesta box</string>
+    <string name="toast_none_left">Nenhum app disponível para adicionar</string>
+    <string name="no_other_launcher">Nenhum outro launcher encontrado</string>
+    <string name="choose_launcher">Escolha o launcher</string>
+    <string name="error_open">Não foi possível abrir</string>
+
+    <string name="info_title">Informações do sistema</string>
+    <string name="info_hint">Use as setas para rolar. Aperte Voltar para sair.</string>
+</resources>
